@@ -1,67 +1,226 @@
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
+/* General Reset and Body Styling */
+* {
     margin: 0;
     padding: 0;
-    background-color: #F4F4F4; /* Light Grey Background */
-    color: #333333; /* Dark Grey Text */
+    box-sizing: border-box;
 }
 
-/* Header Styling */
-header {
-    background-color: #4A90E2; /* Sky Blue */
-    padding: 30px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F4F4F4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    background-color: #212121; /* Dark Charcoal Grey */
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #FFD700; /* Golden Yellow for Logo */
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #B0B0B0; /* Light Grey for Links */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #FFD700; /* Golden Yellow on hover */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero Section Styling */
+.hero {
+    background: url('images/your-image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-color: #333; /* Fallback color */
 }
 
-header h1 {
-    color: #ffffff; /* White Text for the title */
-    font-size: 3em;
-    margin: 0;
+.hero-logo {
+    width: 150px; /* Scale down the logo to fit properly */
+    height: auto;
+    margin-bottom: 20px;
 }
 
-header p {
-    color: #ffffff; /* White Text for tagline */
+.hero h1 {
+    font-size: 3.5em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+/* URL Input Box Styling */
+.url-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.url-form input {
+    padding: 14px 20px;
     font-size: 1.2em;
-    margin-top: 10px;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
 }
 
-/* Call-to-Action Button */
+.url-form input:focus {
+    border-color: #FFD700; /* Highlight border on focus */
+}
+
 .cta-button {
-    background-color: #D0021B; /* Bright Red */
-    color: #ffffff; /* White Text */
-    padding: 12px 25px;
+    background-color: #FFD700; /* Golden Yellow */
+    color: #000;
+    padding: 14px 30px;
     text-decoration: none;
     font-size: 1.2em;
-    margin-top: 20px;
-    display: inline-block;
     border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 .cta-button:hover {
-    background-color: #50E3C2; /* Light Teal on hover */
+    background-color: #FF6347; /* Tomato Red */
+    transform: translateY(-3px);
+    color: #fff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
+
+
+/* About Section Styling */
+.section-about {
+    background-color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.section-about p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* Other existing styles */
+
+/* Add your spinner CSS here */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light gray background */
+    border-top: 4px solid #FFD700; /* Golden color for the rotating part */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite; /* Animation for rotation */
+    margin: 30px auto;
+}
+
+/* Keyframes for spinner rotation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Other existing styles */
+
 
 /* Footer Styling */
 footer {
     background-color: #333333; /* Dark Grey */
-    color: #F4F4F4; /* Light Grey Text */
+    color: #fff;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
-/* Responsive Design (Mobile-friendly) */
+/* Responsive Design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2em; /* Adjust title font size for smaller screens */
+    .navbar .nav-links {
+        flex-direction: column;
+        align-items: center;
     }
-    .cta-button {
-        font-size: 1em; /* Adjust button text size */
-        padding: 10px 20px; /* Smaller padding for mobile */
+
+    .navbar .nav-links li {
+        margin: 10px 0;
     }
 }
+/* Styling for the download options table */
+#options-table th, #options-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+#options-table th {
+    background-color: #FFD700;
+    color: white;
+}
+
+#options-table td {
+    background-color: #f9f9f9;
+}
+
+.download-option {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-option:hover {
+    background-color: #FF6347;
+    color: white;
+}
+
