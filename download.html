@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTClipDownloader</title>
+    <title>Download Your Video - YTClipDownloader</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -13,35 +13,114 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#" class="logo">YT ClipDownloader</a>
+                <a href="index.html" class="logo">YTClipDownloader</a>
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section with URL Pasting Box -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="images/logo.png" alt="Logo" class="hero-logo">
-            <h1>Download Your Favorite YouTube Clips</h1>
-            <p>Paste the YouTube video URL below and start downloading!</p>
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="download-content">
+            <h1>Processing Your Download</h1>
+            <p id="processing-message" style="font-size: 1.3em;">Please wait while we prepare your video for download...</p>
             
-            <!-- URL Input Box -->
-            <form class="url-form" id="downloadForm">
-                <input type="text" id="youtube-url" name="url" placeholder="Enter YouTube URL" required />
-                <button type="submit" class="cta-button">Start Downloading</button>
-            </form>
+            <!-- Simulated Progress Bar or Spinner -->
+            <div id="progress-bar-container" style="width: 80%; margin: 30px auto; border-radius: 5px; background-color: #ddd; height: 20px; position: relative;">
+                <div id="progress-bar" style="width: 0%; height: 100%; background-color: #FFD700; border-radius: 5px;"></div>
+            </div>
             
+            <!-- Simulated Download Button -->
+            <button id="download-button" class="cta-button" style="display: none;">Download Now</button>
+
             <!-- Message to show -->
             <p id="message" style="color: #FF5733; font-weight: bold;"></p>
+
+            <!-- Table for available download options -->
+            <div id="download-options" style="display: none; margin-top: 30px;">
+                <h2>Choose Your Download Format</h2>
+                <table id="options-table" border="1" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Quality</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MP3</td>
+                            <td>320kbps</td>
+                            <td><button class="download-option">Download</button></td>
+                        </tr>
+                        <tr>
+                            <td>MP4</td>
+                            <td>720p</td>
+                            <td><button class="download-option">Download</button></td>
+                        </tr>
+                        <tr>
+                            <td>MP4</td>
+                            <td>1080p</td>
+                            <td><button class="download-option">Download</button></td>
+                        </tr>
+                        <tr>
+                            <td>MP4</td>
+                            <td>2160p</td>
+                            <td><button class="download-option">Download</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <!-- Add your script here -->
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to your existing JS -->
+
+    <script>
+        // Simulate processing of the video download    
+        window.onload = function() {
+            // Simulate a 3-second download process with a progress bar
+            var progressBar = document.getElementById("progress-bar");
+            var message = document.getElementById("processing-message");
+            var downloadButton = document.getElementById("download-button");
+            var downloadOptions = document.getElementById("download-options");
+
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += 10;
+                progressBar.style.width = progress + "%";
+
+                // Once download is complete (100%), stop the interval and show the download button
+                if (progress === 100) {
+                    clearInterval(interval);
+                    message.innerText = "Your video is ready to download!";
+                    downloadButton.style.display = "inline-block"; // Show download button
+                    downloadOptions.style.display = "block"; // Show download options
+                }
+            }, 300); // Update progress bar every 300ms
+
+            // Simulate the download when the button is clicked
+            downloadButton.addEventListener("click", function() {
+                message.innerText = "Downloading...";
+                // This would trigger an actual download in a real-world scenario (e.g., with a download link).
+                setTimeout(function() {
+                    message.innerText = "Download Complete! Thank you for using YTClipDownloader!";
+                }, 2000); // Simulate a download completion after 2 seconds
+            });
+
+            // Handle download option clicks
+            var downloadOptionButtons = document.querySelectorAll('.download-option');
+            downloadOptionButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    alert('Download started for ' + this.parentElement.previousElementSibling.innerText);
+                    // In a real scenario, you can add the link to the file here
+                });
+            });
+        };
+    </script>
 
 </body>
 </html>
