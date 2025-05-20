@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Video - YTClipDownloader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">YTClipDownloader</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="download-content">
+            <h1>Processing Your Download</h1>
+            <p id="processing-message" style="font-size: 1.3em;">Please wait while we prepare your video for download...</p>
+            
+            <!-- Simulated Progress Bar or Spinner -->
+            <div id="progress-bar-container" style="width: 80%; margin: 30px auto; border-radius: 5px; background-color: #ddd; height: 20px; position: relative;">
+                <div id="progress-bar" style="width: 0%; height: 100%; background-color: #FFD700; border-radius: 5px;"></div>
+            </div>
+            
+            <!-- Simulated Download Button -->
+            <button id="download-button" class="cta-button" style="display: none;">Download Now</button>
+
+            <!-- Message to show -->
+            <p id="message" style="color: #FF5733; font-weight: bold;"></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script> <!-- Link to your existing JS -->
+
+    <script>
+        // Simulate processing of the video download
+        window.onload = function() {
+            // Simulate a 3-second download process with a progress bar
+            var progressBar = document.getElementById("progress-bar");
+            var message = document.getElementById("processing-message");
+            var downloadButton = document.getElementById("download-button");
+
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += 10;
+                progressBar.style.width = progress + "%";
+
+                // Once download is complete (100%), stop the interval and show the download button
+                if (progress === 100) {
+                    clearInterval(interval);
+                    message.innerText = "Your video is ready to download!";
+                    downloadButton.style.display = "inline-block"; // Show download button
+                }
+            }, 300); // Update progress bar every 300ms
+
+            // Simulate the download when the button is clicked
+            downloadButton.addEventListener("click", function() {
+                message.innerText = "Downloading...";
+                // This would trigger an actual download in a real-world scenario (e.g., with a download link).
+                setTimeout(function() {
+                    message.innerText = "Download Complete! Thank you for using YTClipDownloader!";
+                }, 2000); // Simulate a download completion after 2 seconds
+            });
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F4F4; /* Light Grey Background */
+    color: #333333; /* Dark Grey Text */
+}
+
+/* Header Styling */
+header {
+    background-color: #4A90E2; /* Sky Blue */
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff; /* White Text for the title */
+    font-size: 3em;
+    margin: 0;
+}
+
+header p {
+    color: #ffffff; /* White Text for tagline */
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    background-color: #D0021B; /* Bright Red */
+    color: #ffffff; /* White Text */
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #50E3C2; /* Light Teal on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333333; /* Dark Grey */
+    color: #F4F4F4; /* Light Grey Text */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design (Mobile-friendly) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em; /* Adjust title font size for smaller screens */
+    }
+    .cta-button {
+        font-size: 1em; /* Adjust button text size */
+        padding: 10px 20px; /* Smaller padding for mobile */
+    }
+}
