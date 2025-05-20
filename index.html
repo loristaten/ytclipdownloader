@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YTClipDownloader</title>
-    <!-- Link to External CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Navigation Bar -->
     <header>
-        <img src="path_to_logo.png" alt="YTClipDownloader Logo" width="150">
-        <h1>YTClipDownloader</h1>
-        <p>Download Your Favorite YouTube Clips Instantly!</p>
-        <a href="#download" class="cta-button">Start Downloading</a>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">YT ClipDownloader</a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2025 YTClipDownloader. All Rights Reserved.</p>
-    </footer>
+    <!-- Hero Section with URL Pasting Box -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/logo.png" alt="Logo" class="hero-logo">
+            <h1>Download Your Favorite YouTube Clips</h1>
+            <p>Paste the YouTube video URL below and start downloading!</p>
+            
+            <!-- URL Input Box -->
+            <form class="url-form" id="downloadForm">
+                <input type="text" id="youtube-url" name="url" placeholder="Enter YouTube URL" required />
+                <button type="submit" class="cta-button">Start Downloading</button>
+            </form>
+            
+            <!-- Message to show -->
+            <p id="message" style="color: #FF5733; font-weight: bold;"></p>
+        </div>
+    </section>
+
+    <!-- Add your script here -->
+    <script src="script.js"></script>
 
 </body>
 </html>
